@@ -38,10 +38,12 @@ class Vacancies extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['date'], 'safe'],
+            [['title', 'company', 'description'], 'required'],
+            [['title', 'city', 'company', 'image'], 'string', 'max' => 255],
+            [['date'], 'date', 'format' => 'php:Y-m-d'],
+            [['date'], 'default', 'value' => date('Y-m-d')],
             [['salary', 'response_id', 'status', 'category_id', 'user_id'], 'integer'],
             [['description'], 'string'],
-            [['title', 'city', 'company', 'image'], 'string', 'max' => 255],
         ];
     }
 
@@ -50,6 +52,7 @@ class Vacancies extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
+        // TODO: distinguish required fields
         return [
             'id' => Yii::t('app', 'ID'),
             'title' => Yii::t('app', 'Title'),
