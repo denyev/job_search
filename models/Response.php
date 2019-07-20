@@ -47,13 +47,13 @@ class Response extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'phone' => 'Phone',
-            'salary' => 'Salary',
-            'user_id' => 'User ID',
-            'vacancy_id' => 'Vacancy ID',
-            'status' => 'Status',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'phone' => Yii::t('app', 'Phone'),
+            'salary' => Yii::t('app', 'Salary'),
+            'user_id' => Yii::t('app', 'User ID'),
+            'vacancy_id' => Yii::t('app', 'Vacancy ID'),
+            'status' => Yii::t('app', 'Status'),
         ];
     }
 

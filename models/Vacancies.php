@@ -51,18 +51,18 @@ class Vacancies extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'date' => 'Date',
-            'city' => 'City',
-            'company' => 'Company',
-            'salary' => 'Salary',
-            'description' => 'Description',
-            'image' => 'Image',
-            'response_id' => 'Response ID',
-            'status' => 'Status',
-            'category_id' => 'Category ID',
-            'user_id' => 'User ID',
+            'id' => Yii::t('app', 'ID'),
+            'title' => Yii::t('app', 'Title'),
+            'date' => Yii::t('app', 'Date'),
+            'city' => Yii::t('app', 'City'),
+            'company' => Yii::t('app', 'Company'),
+            'salary' => Yii::t('app', 'Salary'),
+            'description' => Yii::t('app', 'Description'),
+            'image' => Yii::t('app', 'Image'),
+            'response_id' => Yii::t('app', 'Response ID'),
+            'status' => Yii::t('app', 'Status'),
+            'category_id' => Yii::t('app', 'Category ID'),
+            'user_id' => Yii::t('app', 'User ID'),
         ];
     }
 

@@ -44,13 +44,13 @@ class Users extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'email' => 'Email',
-            'password' => 'Password',
-            'phone' => 'Phone',
-            'salary' => 'Salary',
-            'isAdmin' => 'Is Admin',
+            'id' => Yii::t('app', 'ID'),
+            'name' => Yii::t('app', 'Name'),
+            'email' => Yii::t('app', 'Email'),
+            'password' => Yii::t('app', 'Password'),
+            'phone' => Yii::t('app', 'Phone'),
+            'salary' => Yii::t('app', 'Salary'),
+            'isAdmin' => Yii::t('app', 'Is Admin'),
         ];
     }
 
