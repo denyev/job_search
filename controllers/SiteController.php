@@ -7,8 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use yii\data\Pagination;
+use yii\helpers\Url;
+use app\models\Vacancies;
 
 class SiteController extends Controller
 {
@@ -61,7 +62,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $data = Vacancies::getAll(5);
+
+        return $this->render('index',[
+            'vacancies' => $data['vacancies'],
+            'pagination' => $data['pagination']
+        ]);
     }
 
     /**
