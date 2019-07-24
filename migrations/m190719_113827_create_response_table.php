@@ -15,27 +15,10 @@ class m190719_113827_create_response_table extends Migration
         $this->createTable('{{%response}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
-            'phone' => $this->integer(),
+            'phone' => $this->string(),
             'salary' => $this->integer(),
-            'user_id' => $this->integer(),
             'vacancy_id' => $this->integer(),
-            'status' => $this->string(),
         ]);
-
-        $this->createIndex(
-            'idx-vacancy-user_id',
-            'response',
-            'user_id'
-        );
-
-        $this->addForeignKey(
-            'fk-vacancy-user_id',
-            'response',
-            'user_id',
-            'users',
-            'id',
-            'CASCADE'
-        );
 
         $this->createIndex(
             'idx-vacancy_id',

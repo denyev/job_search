@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use yii\data\Pagination;
 use yii\helpers\Url;
 use app\models\Vacancies;
+use app\models\ResponseForm;
 
 class SiteController extends Controller
 {
@@ -62,7 +63,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $data = Vacancies::getAll(5);
+        define("NUMBER_PER_PAGE", 5);
+        $data = Vacancies::getAll(NUMBER_PER_PAGE);
 
         return $this->render('index',[
             'vacancies' => $data['vacancies'],
@@ -71,14 +73,37 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays a single vacancy.
+     *
      * @return string
      */
     public function actionView($id)
     {
         $vacancy = Vacancies::findOne($id);
+        $responses = $vacancy->responses;
+        $responseForm = new ResponseForm();
 
         return $this->render('single', [
-            'vacancy'  => $vacancy
+            'vacancy'  => $vacancy,
+            'responses' => $responses,
+            'responseForm' => $responseForm
         ]);
+    }
+
+    /**
+     * @param int $id
+     * @return Response
+     */
+    public function actionResponse($id)
+    {
+        $model = new ResponseForm();
+
+        if(Yii::$app->request->isPost) {
+            $model->load(Yii::$app->request->post());
+
+            if($model->saveResponse($id)) {
+                return $this->redirect(['site/view','id' => $id]);
+            }
+        }
     }
 }

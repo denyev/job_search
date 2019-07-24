@@ -104,14 +104,23 @@ class Vacancies extends \yii\db\ActiveRecord
         return Yii::$app->formatter->asDate($this->date);
     }
 
+    /**
+     * Returns a full list of vacancies.
+     *
+     * @param int $pageSize - Number of vacancies per page.
+     * @return mixed
+     */
     public static function getAll($pageSize = 1)
     {
         // build a DB query to get all vacancies
         $query = Vacancies::find();
+
         // get the total number of vacancies (but do not fetch the article data yet)
         $count = $query->count();
+
         // create a pagination object with the total count
         $pagination = new Pagination(['totalCount' => $count, 'pageSize' => $pageSize]);
+
         // limit the query using the pagination and retrieve the vacancies
         $vacancies = $query->offset($pagination->offset)
             ->limit($pagination->limit)
@@ -121,5 +130,13 @@ class Vacancies extends \yii\db\ActiveRecord
         $data['pagination'] = $pagination;
 
         return $data;
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getResponses()
+    {
+        return $this->hasMany(Response::className(), ['vacancy_id'=>'id']);
     }
 }
