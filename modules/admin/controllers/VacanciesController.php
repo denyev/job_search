@@ -5,12 +5,9 @@ namespace app\modules\admin\controllers;
 use Yii;
 use app\models\Vacancies;
 use app\models\VacanciesSearch;
-use app\models\ImageUpload;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
-use yii\base\Module;
 
 /**
  * VacanciesController implements the CRUD actions for Vacancies model.
@@ -126,26 +123,5 @@ class VacanciesController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
-    }
-
-    /**
-     * @param integer $id
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException
-     */
-    public function actionSetImage($id)
-    {
-        $model = new ImageUpload;
-
-        if (Yii::$app->request->isPost) {
-            $vacancy = $this->findModel($id);
-            $file = UploadedFile::getInstance($model, 'image');
-
-            if ($vacancy->saveImage($model->upload($file, $vacancy->image))) {
-                return $this->redirect(['view', 'id' => $vacancy->id]);
-            }
-        }
-
-        return $this->render('image', ['model'=>$model]);
     }
 }

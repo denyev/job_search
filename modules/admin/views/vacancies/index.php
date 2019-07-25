@@ -33,18 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'city',
             'company',
-            [
-                'format' => 'html',
-                'label' => 'Image',
-                'value' => function($data) {
-                    return Html::img($data->getImage(), ['width' => 200]);
-                }
-            ],
-            //'salary',
+            'salary',
             //'description:ntext',
-            //'image',
             //'response_id',
-            //'status',
             //'category_id',
             //'user_id',
 
