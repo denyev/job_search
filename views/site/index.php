@@ -1,33 +1,67 @@
 <?php
+use yii\helpers\Url;
+use yii\bootstrap4\LinkPager;
 
 /* @var $this yii\web\View */
-use yii\helpers\Url;
-use yii\widgets\LinkPager;
+/* @var $vacancy app\controllers\SiteController */
 
-$this->title = 'Job catalog';
+$this->title = 'Каталог вакансий';
 ?>
-<div class="site-index">
-    <div class="container">
-        <?php foreach($vacancies as $vacancy):?>
-            <div class="row">
-                <a href="<?= Url::toRoute(['site/view', 'id' => $vacancy->id]); ?>">
-                    <img src="<?= $vacancy->getImage(); ?>"
-                         width="800" height="400"
-                         alt="Изображение для вакансии «<?= $vacancy->title ?>»">
-                </a>
-                <a href="<?= Url::toRoute(['site/view', 'id' => $vacancy->id]); ?>">
-                    <?= $vacancy->title ?>
-                </a>
-                <div>
-                    <?= strip_tags(substr($vacancy->description, 0, 255)) ?>
-                    <a href="<?= Url::toRoute(['site/view', 'id' => $vacancy->id]); ?>"> Далее...</a>
+<div class="container catalog">
+    <div class="card card-body bg-light mb-3 d-none d-sm-flex catalog__contrlos">
+        <div class="btn-group btn-group-lg" role="group">
+            <button class="btn btn-outline-primary catalog__btn" id="list"
+                aria-label="Отображать списком">
+                <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+            <button class="btn btn-outline-primary catalog__btn" id="grid"
+                aria-label="Отображать сеткой">
+                <span class="glyphicon glyphicon-th"></span>
+            </button>
+        </div>
+    </div>
+    <div id="catalogList" class="row">
+
+        <?php foreach($vacancies as $vacancyKey => $vacancy):?>
+        <div class="catalog__item catalog__item--grid-view col-sm-6 mb-3">
+            <div class="card catalog__card">
+                <div class="card-body catalog__card-body">
+                    <a class="card-header" href="<?= Url::toRoute(['site/view', 'id' => $vacancy->id]); ?>">
+                        <h2 class="card-title">
+                                <?= $vacancy->title ?>
+                        </h2>
+                    </a>
+
+                    <div class="catalog__content">
+                        <div class="catalog__description"
+                                data-toggle="collapse"
+                                data-target="#description-<?= $vacancyKey ?>"
+                                aria-expanded="false"
+                                aria-controls="description-<?= $vacancyKey ?>"
+                        ></div>
+                        <div class="card-text collapse multi-collapse catalog__text"
+                             id="description-<?= $vacancyKey ?>">
+                            <?= $vacancy->description ?>
+                        </div>
+                    </div>
                 </div>
             </div>
-         <?php endforeach; ?>
-        <?php
-            echo LinkPager::widget([
-                'pagination' => $pagination,
-            ]);
-        ?>
+        </div>
+        <?php endforeach; ?>
+
     </div>
+    <?php
+        echo LinkPager::widget([
+            'pagination' => $pagination,
+            'maxButtonCount' => 2,
+            'pageCssClass' => 'page-item',
+            'linkOptions' => ['class' => ['page-link']],
+            'options' => [
+                    'class' => [
+                            'pagination',
+                            'justify-content-center',
+                    ]
+            ],
+        ]);
+    ?>
 </div>
