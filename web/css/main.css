@@ -3,7 +3,7 @@ body {
     font-size: 100%;
 }
 
-/* Cataloge */
+/* Catalog */
 .catalog__item--list-view {
     flex-basis: 100%;
     width: 100%;
@@ -34,4 +34,10 @@ body {
     height: 16px;
     background-image: linear-gradient(to bottom, transparent, #fff);
 }
-/* /Cataloge */
+/* /Catalog */
+
+/* Navbar */
+.nav-item .nav-link:hover {
+    background-color: transparent;
+}
+/* /Navbar */
