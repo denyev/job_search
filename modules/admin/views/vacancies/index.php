@@ -3,12 +3,15 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\bootstrap\BootstrapAsset;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\VacanciesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', '');
+BootstrapAsset::register($this);
+
+$this->title = Yii::t('app', 'Вакансии');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vacancies-index">
