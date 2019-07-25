@@ -47,6 +47,21 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'pattern'=>'/',
+                    'route' => 'site/index',
+                    'suffix' => '',
+                ],
+                [
+                    'pattern'=>'edit-catalog',
+                    'route' => 'admin/vacancies/index',
+                    'suffix' => '',
+                ],
+                [
+                    'pattern'=>'vacancy',
+                    'route' => 'site/view',
+                    'suffix' => '',
+                ],
             ],
         ],
     ],
