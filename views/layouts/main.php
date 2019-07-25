@@ -28,14 +28,14 @@ use app\assets\MainAsset;
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => 'Каталог вакансий',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar navbar-expand navbar-dark flex-column flex-md-row bg-dark',
         ],
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav ml-auto'],
         'items' => [
             ['label' => 'Каталог', 'url' => ['/site/index']],
             ['label' => 'Редактировать вакансии', 'url' => ['/admin/vacancies/index']],
@@ -45,9 +45,6 @@ use app\assets\MainAsset;
     ?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
