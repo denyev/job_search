@@ -2,8 +2,19 @@ html,
 body {
     font-size: 100%;
 }
+h1 {
+    margin: 0 0 32px 0;
+}
+
+h2 {
+    margin: 32px 0;
+}
 
 /* Catalog */
+.catalog__item .card-header {
+    border: 0;
+}
+
 .catalog__item--list-view {
     flex-basis: 100%;
     width: 100%;
@@ -37,7 +48,9 @@ body {
 /* /Catalog */
 
 /* Navbar */
-.nav-item .nav-link:hover {
+.nav-item .nav-link:hover,
+.nav-item .nav-link:active,
+.nav-item .nav-link:focus {
     background-color: transparent;
 }
 /* /Navbar */
