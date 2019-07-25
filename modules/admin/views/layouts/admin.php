@@ -5,12 +5,11 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 use app\assets\AppAsset;
-
-AppAsset::register($this);
+use app\assets\BootstrapMDAsset;
+use app\assets\MainAsset;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -61,7 +60,11 @@ AppAsset::register($this);
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
+<?php
+AppAsset::register($this);
+BootstrapMDAsset::register($this);
+MainAsset::register($this);
+?>
 <?php $this->endBody() ?>
 </body>
 </html>
