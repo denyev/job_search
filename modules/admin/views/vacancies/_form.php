@@ -25,7 +25,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'date')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Сохранить изменения'), [
+            'class' => 'btn btn-outline-success'
+        ]) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

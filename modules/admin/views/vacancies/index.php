@@ -19,7 +19,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Создать вакансию'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Создать вакансию'), ['create'], [
+            'class' => 'btn btn-outline-success'
+        ]) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -36,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'city',
             'company',
-            'salary',
+            //'salary',
             //'description:ntext',
             //'response_id',
             //'category_id',
