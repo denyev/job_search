@@ -1,0 +1,37 @@
+html,
+body {
+    font-size: 100%;
+}
+
+/* Cataloge */
+.catalog__item--list-view {
+    flex-basis: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.catalog__item--grid-view .catalog__description,
+.catalog__item--grid-view .catalog__text {
+    display: none !important;
+}
+
+.catalog__item--list-view .catalog__description,
+.catalog__item--list-view .catalog__text.show {
+    display: inline !important;
+}
+
+.catalog__content {
+    position: relative;
+}
+
+.catalog__content::after {
+    content: "";
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 16px;
+    background-image: linear-gradient(to bottom, transparent, #fff);
+}
+/* /Cataloge */
