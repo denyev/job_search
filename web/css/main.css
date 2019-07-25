@@ -41,3 +41,60 @@ body {
     background-color: transparent;
 }
 /* /Navbar */
+
+/* Responsive table */
+@media (max-width: 575px) {
+
+    caption {
+        text-align: center;
+    }
+
+    table.table {
+        border: none;
+    }
+
+    table.table th {
+        display: none;
+    }
+
+    table.table td:before {
+        margin: 0 0 8px;
+        content: attr(data-th);
+        display: block;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    table.table tr,
+    table.table td {
+        display: block;
+        text-align: center;
+    }
+
+    table.table td {
+        margin-bottom: -1px;
+    }
+
+    table.table td:first-child {
+        width: auto;
+    }
+
+    table.table td[colspan] {
+        background-color: #ddd;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    table.table tr {
+        margin-bottom: 14px;
+    }
+
+    table.table td:empty,
+    table.table .filters,
+    table.table [data-th="#"],
+    table.table [data-th="ID"] {
+        display: none;
+    }
+}
+/* /Responsive table */

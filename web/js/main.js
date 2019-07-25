@@ -51,4 +51,24 @@ $(document).ready(function() {
         redistributeText(card);
         card.find('.catalog__content').hover(handlerCollapseIn, handlerCollapseOut);
     });
+
+    /* Responsive table */
+    var headerText = [];
+    var headers = document.querySelectorAll('table.table thead tr th');
+    var tableBody = document.querySelector('table.table tbody');
+
+    for(var i = 0; i < headers.length; i++) {
+        var current = headers[i];
+        headerText.push(current.textContent.replace(/\r?\n|\r/, ""));
+    }
+
+    for (var k = 0, row; row = tableBody.rows[k]; k++) {
+        for (var j = 0, col; col = row.cells[j]; j++) {
+            console.log(headerText[j]);
+            if (headerText[j] !== ' ') {
+                col.setAttribute('data-th', headerText[j]);
+            }
+        }
+    }
+    /* /Responsive table */
 });
