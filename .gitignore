@@ -34,8 +34,3 @@ tests/_support/_generated
 
 # config
 config/db.php
-
-web/css/*
-!web/css/main.css
-web/js/*
-!web/js/main.js
