@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Url;
 use yii\bootstrap4\LinkPager;
+use rmrevin\yii\fontawesome\FAS;
 
 /* @var $this yii\web\View */
 /* @var $vacancy app\controllers\SiteController */
@@ -12,11 +13,11 @@ $this->title = 'Каталог вакансий';
         <div class="btn-group btn-group-lg" role="group">
             <button class="btn btn-outline-primary catalog__btn" id="list"
                 aria-label="Отображать списком">
-                <span class="glyphicon glyphicon-th-list"></span>
+                <?= FAS::icon('th-list')->size(FAS::SIZE_2X) ?>
             </button>
             <button class="btn btn-outline-primary catalog__btn" id="grid"
                 aria-label="Отображать сеткой">
-                <span class="glyphicon glyphicon-th"></span>
+                <?= FAS::icon('th')->size(FAS::SIZE_2X) ?>
             </button>
         </div>
     </div>
