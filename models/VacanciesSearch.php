@@ -17,7 +17,7 @@ class VacanciesSearch extends Vacancies
     public function rules()
     {
         return [
-            [['id', 'salary', 'response_id', 'status', 'category_id', 'user_id'], 'integer'],
+            [['id', 'salary', 'response_id', 'category_id', 'user_id'], 'integer'],
             [['title', 'date', 'city', 'company', 'description', 'image'], 'safe'],
         ];
     }
@@ -62,7 +62,6 @@ class VacanciesSearch extends Vacancies
             'date' => $this->date,
             'salary' => $this->salary,
             'response_id' => $this->response_id,
-            'status' => $this->status,
             'category_id' => $this->category_id,
             'user_id' => $this->user_id,
         ]);
@@ -70,8 +69,7 @@ class VacanciesSearch extends Vacancies
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'company', $this->company])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'image', $this->image]);
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }
