@@ -8,15 +8,15 @@ use yii\helpers\Url;
 <div class="container">
     <div class="row">
         <h1><?= $vacancy->title ?></h1>
-
-        <div>
-            <?= $vacancy->description ?>
-        </div>
-
-        <?= $this->render('/partials/response', [
-            'vacancy' => $vacancy,
-            'responses' => $responses,
-            'responseForm' => $responseForm
-        ])?>
     </div>
+
+    <div class="row">
+        <?= $vacancy->description ?>
+    </div>
+
+    <?= $this->render('/partials/response', [
+        'vacancy' => $vacancy,
+        'responses' => $responses,
+        'responseForm' => $responseForm
+    ])?>
 </div>
