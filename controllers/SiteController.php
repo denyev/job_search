@@ -63,7 +63,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        define("NUMBER_PER_PAGE", 5);
+        define("NUMBER_PER_PAGE", 6);
         $data = Vacancies::getAll(NUMBER_PER_PAGE);
 
         return $this->render('index',[
