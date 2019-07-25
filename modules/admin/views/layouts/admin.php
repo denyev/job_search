@@ -31,7 +31,7 @@ use app\assets\MainAsset;
         'brandLabel' => 'Каталог вакансий',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-expand navbar-dark flex-column flex-md-row bg-dark',
+            'class' => 'navbar navbar-expand-md navbar-dark flex-column flex-md-row bg-dark',
         ],
     ]);
     echo Nav::widget([
