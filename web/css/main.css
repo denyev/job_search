@@ -45,6 +45,20 @@ h2 {
     height: 16px;
     background-image: linear-gradient(to bottom, transparent, #fff);
 }
+
+.catalog__pagination {
+    padding-left: 15px;
+}
+
+.catalog__pagination .disabled span {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    min-width: 2.6em;
+    text-align: center;
+    line-height: 1.25;
+    margin-right: .5em;
+}
 /* /Catalog */
 
 /* Navbar */
