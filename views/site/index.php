@@ -25,11 +25,11 @@ $this->title = 'Каталог вакансий';
     <div class="catalog col-12 col-md-9">
         <div class="card card-body bg-light mb-3 d-none d-sm-flex catalog__contrlos">
             <div class="btn-group btn-group-lg" role="group">
-                <button class="btn btn-outline-primary catalog__btn" id="list"
+                <button class="btn btn-outline-primary catalog__btn" id="list" type="button"
                     aria-label="Отображать списком">
                     <?= FAS::icon('th-list')->size(FAS::SIZE_2X) ?>
                 </button>
-                <button class="btn btn-outline-primary catalog__btn" id="grid"
+                <button class="btn btn-outline-primary catalog__btn" id="grid" type="button"
                     aria-label="Отображать сеткой">
                     <?= FAS::icon('th')->size(FAS::SIZE_2X) ?>
                 </button>
