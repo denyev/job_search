@@ -7,10 +7,9 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use yii\data\Pagination;
-use yii\helpers\Url;
 use app\models\Vacancies;
 use app\models\ResponseForm;
+use app\models\VacanciesSearch;
 
 class SiteController extends Controller
 {
@@ -64,11 +63,14 @@ class SiteController extends Controller
     public function actionIndex()
     {
         define("NUMBER_PER_PAGE", 6);
-        $data = Vacancies::getAll(NUMBER_PER_PAGE);
+
+        $searchModel = new VacanciesSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize=NUMBER_PER_PAGE;
 
         return $this->render('index',[
-            'vacancies' => $data['vacancies'],
-            'pagination' => $data['pagination']
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
