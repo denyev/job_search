@@ -28,23 +28,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company') ?>
 
-    <?php // echo $form->field($model, 'salary') ?>
+    <?= $form->field($model, 'salary') ?>
 
     <?php // echo $form->field($model, 'description') ?>
 
-    <?php // echo $form->field($model, 'image') ?>
-
     <?php // echo $form->field($model, 'response_id') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
 
     <?php // echo $form->field($model, 'category_id') ?>
 
-    <?php // echo $form->field($model, 'user_id') ?>
-
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Поиск'), ['class' => 'btn btn-outline-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Сброс'), ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
