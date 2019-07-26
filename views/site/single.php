@@ -14,7 +14,7 @@ use yii\helpers\Url;
         <?= $vacancy->description ?>
     </div>
 
-    <?= $this->render('/partials/response', [
+    <?= $this->render('/partials/_response', [
         'vacancy' => $vacancy,
         'responses' => $responses,
         'responseForm' => $responseForm
