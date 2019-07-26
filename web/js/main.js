@@ -15,16 +15,16 @@ $(document).ready(function() {
         $('#list').removeClass('active');
     });
 
-    var handlerCollapseIn = function() {
+    var handlerCollapseIn = function () {
         var description = $(this).find('.catalog__description');
         var text = $(this).find('.catalog__text');
 
-        if ( ! text.hasClass('show') || ! text.hasClass('collapsing') ) {
+        if ( ! text.hasClass('show') && ! text.hasClass('collapsing') ) {
             description.click();
         }
     };
 
-    var handlerCollapseOut = function() {
+    var handlerCollapseOut = function () {
         var description = $(this).find('.catalog__description');
         var text = $(this).find('.catalog__text');
 
@@ -53,22 +53,27 @@ $(document).ready(function() {
     });
 
     /* Responsive table */
-    var headerText = [];
-    var headers = document.querySelectorAll('table.table thead tr th');
-    var tableBody = document.querySelector('table.table tbody');
+    var addDataHeadersToTable = function () {
+        var headerText = [];
+        var headers = document.querySelectorAll('table.table thead tr th');
+        var tableBody = document.querySelector('table.table tbody');
 
-    for(var i = 0; i < headers.length; i++) {
-        var current = headers[i];
-        headerText.push(current.textContent.replace(/\r?\n|\r/, ""));
-    }
+        for(var i = 0; i < headers.length; i++) {
+            var current = headers[i];
+            headerText.push(current.textContent.replace(/\r?\n|\r/, ""));
+        }
 
-    for (var k = 0, row; row = tableBody.rows[k]; k++) {
-        for (var j = 0, col; col = row.cells[j]; j++) {
-            console.log(headerText[j]);
-            if (headerText[j] !== ' ') {
-                col.setAttribute('data-th', headerText[j]);
+        for (var k = 0, row; row = tableBody.rows[k]; k++) {
+            for (var j = 0, col; col = row.cells[j]; j++) {
+                if (headerText[j] !== ' ') {
+                    col.setAttribute('data-th', headerText[j]);
+                }
             }
         }
+    };
+
+    if ($('table.table').length !== 0) {
+        addDataHeadersToTable();
     }
     /* /Responsive table */
 });
