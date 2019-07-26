@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\VacanciesSearch */
@@ -18,11 +19,17 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'date') ?>
+    <?= $form->field($model, 'date')->widget(DatePicker::className(), [
+            'language' => 'ru',
+            'dateFormat' => 'dd-MM-yyyy',
+            'options' => [
+                'class' => 'form-control',
+                'placeholder' => 'дд-мм-гггг'
+            ],
+        ])
+    ?>
 
     <?= $form->field($model, 'city') ?>
 
