@@ -55,7 +55,7 @@ class Vacancies extends \yii\db\ActiveRecord
         // TODO: distinguish required fields
         return [
             'id' => Yii::t('app', 'ID'),
-            'title' => Yii::t('app', 'Заголовок'),
+            'title' => Yii::t('app', 'Название'),
             'date' => Yii::t('app', 'Дата'),
             'city' => Yii::t('app', 'Город'),
             'company' => Yii::t('app', 'Компания'),
