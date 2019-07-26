@@ -211,7 +211,7 @@ h2 {
 
     table.table td:before {
         margin: 0 0 8px;
-        content: attr(data-th);
+        content: attr(data-cell-header);
         display: block;
         font-size: 16px;
         text-align: center;
@@ -244,8 +244,8 @@ h2 {
 
     table.table td:empty,
     table.table .filters,
-    table.table [data-th="#"],
-    table.table [data-th="ID"] {
+    table.table [data-cell-header="#"],
+    table.table [data-cell-header="ID"] {
         display: none;
     }
 }
