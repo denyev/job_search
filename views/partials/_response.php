@@ -37,13 +37,17 @@ use yii\helpers\Html;
     <h2>Оставить отклик</h2>
     <?php
         $form = \yii\widgets\ActiveForm::begin([
-            'action'=>[
+            'action' => [
                 'site/response',
-                'id'=>$vacancy->id
+                'id' => $vacancy->id
             ],
-            'options'=>[
-                'class'=>'form-horizontal contact-form col-md-12',
-                'role'=>'form'
+            'options' => [
+                'class' => [
+                    'form-horizontal',
+                    'contact-form',
+                    'col-md-12',
+                ],
+                'role' => 'form'
             ]
         ]);
     ?>
