@@ -65,7 +65,7 @@ $(document).ready(function() {
 
         for (var k = 0, row; row = tableBody.rows[k]; k++) {
             for (var j = 0, col; col = row.cells[j]; j++) {
-                if (headerText[j] !== ' ') {
+                if (headerText[j] !== ' ' && headerText[j] !== undefined) {
                     col.setAttribute('data-th', headerText[j]);
                 }
             }
