@@ -94,20 +94,22 @@ $ sudo systemctl restart redis.service
 
 <details>
 <summary>Пример настроек</summary>
-```
-'redis' => [
-    'class' => 'yii\redis\Connection',
-    'hostname' => 'localhost',
-    'port' => 6379,
-    'database' => 0,
-],
-'session' => [
-    'class' => 'yii\redis\Session',
-],
-'cache' => [
-    'class' => 'yii\redis\Cache',
-],
-```
+<pre>
+    <code>
+    'redis' => [
+        'class' => 'yii\redis\Connection',
+        'hostname' => 'localhost',
+        'port' => 6379,
+        'database' => 0,
+    ],
+    'session' => [
+        'class' => 'yii\redis\Session',
+    ],
+    'cache' => [
+        'class' => 'yii\redis\Cache',
+    ],
+    </code>
+</pre>
 </details>
 
 
