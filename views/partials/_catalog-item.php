@@ -1,15 +1,28 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
+
+$formatter = \Yii::$app->formatter;
 ?>
-<div class="card catalog__card">
-    <article class="card-body catalog__card-body">
-        <div class="card-header">
-            <h2 class="card-title">
-                <?= Html::a(Html::encode($model->title),
-                        Url::toRoute(['site/view', 'id' => $model->id]), ['title' => $model->title]) ?>
-            </h2>
-        </div>
+<article class="card catalog__card">
+    <div class="card-header">
+        <h2 class="card-title">
+            <?= Html::a(Html::encode($model->title),
+                Url::toRoute(['site/view', 'id' => $model->id]), ['title' => $model->title]) ?>
+        </h2>
+        <?php if ($model->salary): ?>
+        <b class="card-subtitle text-muted catalog__subtitle">
+            <?= $formatter->asCurrency(
+                    $model->salary,
+                    $currency = null,
+                    $options = [
+                            NumberFormatter::MIN_FRACTION_DIGITS => 0,
+                    ])
+            ?>
+        </b>
+        <?php endif; ?>
+    </div>
+    <div class="card-body catalog__card-body">
 
         <div class="catalog__content">
             <div class="catalog__description"
@@ -25,5 +38,12 @@ use yii\helpers\Url;
                 <?= $model->description ?>
             </div>
         </div>
-    </article>
-</div>
+    </div>
+    <div class="card-footer text-muted">
+        <div class="catalog__meta row justify-content-between px-4">
+            <p class="catalog__meta-item"><?= $formatter ->asDate($model->date) ?></p>
+            <p class="catalog__meta-item"><?= $model->city ?></p>
+            <p class="catalog__meta-item"><?= $model->company ?></p>
+        </div>
+    </div>
+</article>
