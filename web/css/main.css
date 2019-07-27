@@ -21,11 +21,13 @@ h2 {
     max-width: 100%;
 }
 
+.catalog__item--grid-view .catalog__subtitle,
 .catalog__item--grid-view .catalog__description,
 .catalog__item--grid-view .catalog__text {
     display: none !important;
 }
 
+.catalog__item--list-view .catalog__subtitle,
 .catalog__item--list-view .catalog__description,
 .catalog__item--list-view .catalog__text.show {
     display: inline !important;
