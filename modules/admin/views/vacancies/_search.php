@@ -19,9 +19,18 @@ use yii\jui\DatePicker;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'title', [
+            'labelOptions' => [
+                    'class' => 'bmd-label-floating'
+            ]
+        ])
+    ?>
 
-    <?= $form->field($model, 'date')->widget(DatePicker::className(), [
+    <?= $form->field($model, 'date', [
+            'labelOptions' => [
+                    'class' => 'bmd-label-floating'
+            ]
+        ])->widget(DatePicker::className(), [
             'language' => 'ru',
             'dateFormat' => 'yyyy-MM-dd',
             'options' => [
@@ -31,11 +40,26 @@ use yii\jui\DatePicker;
         ])
     ?>
 
-    <?= $form->field($model, 'city') ?>
+    <?= $form->field($model, 'city', [
+            'labelOptions' => [
+                'class' => 'bmd-label-floating'
+            ]
+        ])
+    ?>
 
-    <?= $form->field($model, 'company') ?>
+    <?= $form->field($model, 'company', [
+            'labelOptions' => [
+                    'class' => 'bmd-label-floating'
+            ]
+        ])
+    ?>
 
-    <?= $form->field($model, 'salary') ?>
+    <?= $form->field($model, 'salary', [
+            'labelOptions' => [
+                    'class' => 'bmd-label-floating'
+            ]
+        ])
+    ?>
 
     <?php // echo $form->field($model, 'description') ?>
 

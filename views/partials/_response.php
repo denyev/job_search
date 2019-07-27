@@ -52,15 +52,23 @@ use yii\helpers\Html;
         ]);
     ?>
     <div class="form-group">
-        <?php
-            echo $form->field($responseForm, 'name')
+        <?= $form->field($responseForm, 'name', [
+                    'labelOptions' => [
+                        'class' => 'bmd-label-floating'
+                    ]
+                ])
                 ->textInput([
                     'class' => 'form-control',
                     'placeholder' => 'Иванов Иван'
                 ])
                 ->label('Имя');
 
-            echo $form->field($responseForm, 'phone')->widget(\yii\widgets\MaskedInput::className(), [
+        <?= $form->field($responseForm, 'phone', [
+                    'labelOptions' => [
+                        'class' => 'bmd-label-floating'
+                    ]
+                ])
+                ->widget(\yii\widgets\MaskedInput::className(), [
                     'options' => [
                         'class' => 'form-control',
                         'id' => 'responsePhone',
@@ -73,7 +81,11 @@ use yii\helpers\Html;
                 ])
                 ->label('Телефон');
 
-            echo $form->field($responseForm, 'salary')
+        <?= $form->field($responseForm, 'salary', [
+                    'labelOptions' => [
+                        'class' => 'bmd-label-floating'
+                    ]
+                ])
                 ->textInput([
                     'class' => 'form-control',
                     'placeholder' => ''
