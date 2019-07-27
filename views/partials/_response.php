@@ -28,10 +28,10 @@ use yii\helpers\Html;
                 </dl>
             </div>
             </div>
-        <?php endforeach;?>
+        <?php endforeach; ?>
     </div>
 </section>
-<?php endif;?>
+<?php endif; ?>
 
 <section class="row">
     <h2>Оставить отклик</h2>
@@ -62,6 +62,7 @@ use yii\helpers\Html;
                     'placeholder' => 'Иванов Иван'
                 ])
                 ->label('Имя');
+        ?>
 
         <?= $form->field($responseForm, 'phone', [
                     'labelOptions' => [
@@ -80,6 +81,7 @@ use yii\helpers\Html;
                     'mask' => '+7 (999) 999-99-99',
                 ])
                 ->label('Телефон');
+        ?>
 
         <?= $form->field($responseForm, 'salary', [
                     'labelOptions' => [
@@ -88,7 +90,6 @@ use yii\helpers\Html;
                 ])
                 ->textInput([
                     'class' => 'form-control',
-                    'placeholder' => ''
                 ])
                 ->label('Зарплата');
         ?>
