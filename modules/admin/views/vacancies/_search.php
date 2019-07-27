@@ -69,7 +69,6 @@ use yii\jui\DatePicker;
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Поиск'), ['class' => 'btn btn-outline-primary']) ?>
-        <?= Html::resetButton(Yii::t('app', 'Сброс'), ['class' => 'btn btn-outline-secondary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
