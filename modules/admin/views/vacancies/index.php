@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'date',
             'city',
             'company',
-            //'salary',
+            'salary',
             //'description:ntext',
             //'response_id',
             //'category_id',
