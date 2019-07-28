@@ -51,9 +51,9 @@ class Response extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'phone' => Yii::t('app', 'Phone'),
-            'salary' => Yii::t('app', 'Salary'),
+            'name' => Yii::t('app', 'Имя'),
+            'phone' => Yii::t('app', 'Телефон'),
+            'salary' => Yii::t('app', 'Зарплата'),
             'vacancy_id' => Yii::t('app', 'Vacancy ID')
         ];
     }
