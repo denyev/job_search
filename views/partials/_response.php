@@ -23,19 +23,7 @@ $formatter = \Yii::$app->formatter;
                     <dd class="card-text col-6">
                         <a href="tel:+7<?= Html::encode($response->phone); ?>"
                            aria-label="Телефон соискателя: <?= Html::encode($response->name); ?>">
-                            <?php
-                                /* https://regex101.com/r/FCeSwg/1/ */
-                                $phoneRegexp = '/^(\d{3})(\d{3})(\d{2})(\d{2})$/';
-                                $phoneMatch = preg_match($phoneRegexp, $response->phone, $matches);
-                                if ($phoneMatch) {
-                                    if ($matches[1] && $matches[2] && $matches[3] && $matches[4]) {
-                                        $phone = '+7&nbsp;(' . $matches[1] . ')&nbsp;'
-                                            . $matches[2] . '-' . $matches[3] . '-'
-                                            . $matches[4];
-                                        echo $phone;
-                                    }
-                                }
-                            ?>
+                            <?= $formatter->asPhone($response->phone) ?>
                         </a>
                     </dd>
                     <dt class="card-title col-6">Зарплата:</dt>

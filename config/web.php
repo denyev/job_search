@@ -64,6 +64,9 @@ $config = [
                 ],
             ],
         ],
+        'formatter' => [
+            'class' => 'app\components\FormatterHelper',
+        ],
     ],
     'modules' => [
         'admin' => [
