@@ -30,7 +30,8 @@ use yii\jui\DatePicker;
             'labelOptions' => [
                     'class' => 'bmd-label-floating'
             ]
-        ])->widget(DatePicker::className(), [
+        ])
+        ->widget(DatePicker::className(), [
             'language' => 'ru',
             'dateFormat' => 'yyyy-MM-dd',
             'options' => [
