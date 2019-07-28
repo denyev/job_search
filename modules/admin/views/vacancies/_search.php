@@ -26,20 +26,48 @@ use yii\jui\DatePicker;
         ])
     ?>
 
-    <?= $form->field($model, 'date', [
-            'labelOptions' => [
-                    'class' => 'bmd-label-floating'
-            ]
-        ])
-        ->widget(DatePicker::className(), [
-            'language' => 'ru',
-            'dateFormat' => 'yyyy-MM-dd',
-            'options' => [
-                'class' => 'form-control',
-                'placeholder' => 'гггг-мм-дд'
-            ],
-        ])
-    ?>
+    <fieldset class="form-group">
+        <legend class="col-form-label text-muted">Дата</legend>
+        <div class="row">
+            <?= $form->field($model, 'min_date', [
+                    'options' => [
+                            'class' => 'col-6'
+                    ],
+                    'labelOptions' => [
+                            'class' => 'bmd-label-floating'
+                    ]
+                ])
+                ->widget(DatePicker::className(), [
+                    'language' => 'ru',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'options' => [
+                        'class' => 'form-control',
+                        'placeholder' => 'гггг-мм-дд'
+                    ],
+                ])
+                ->label('От')
+            ?>
+
+            <?= $form->field($model, 'max_date', [
+                    'options' => [
+                            'class' => 'col-6'
+                    ],
+                    'labelOptions' => [
+                            'class' => 'bmd-label-floating'
+                    ]
+                ])
+                ->widget(DatePicker::className(), [
+                    'language' => 'ru',
+                    'dateFormat' => 'yyyy-MM-dd',
+                    'options' => [
+                        'class' => 'form-control',
+                        'placeholder' => 'гггг-мм-дд'
+                    ],
+                ])
+                ->label('До')
+            ?>
+        </div>
+    </fieldset>
 
     <?= $form->field($model, 'city', [
             'labelOptions' => [
@@ -56,7 +84,7 @@ use yii\jui\DatePicker;
     ?>
 
     <fieldset class="form-group">
-        <legend class="col-form-label">Зарплата</legend>
+        <legend class="col-form-label text-muted">Зарплата</legend>
         <div class="row">
             <?= $form->field($model, 'min_salary', [
                     'options' => [

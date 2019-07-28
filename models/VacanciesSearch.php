@@ -13,6 +13,8 @@ class VacanciesSearch extends Vacancies
 {
     public $min_salary;
     public $max_salary;
+    public $min_date;
+    public $max_date;
 
     /**
      * {@inheritdoc}
@@ -21,7 +23,8 @@ class VacanciesSearch extends Vacancies
     {
         return [
             [['id', 'salary', 'min_salary', 'max_salary', 'response_id', 'category_id', 'user_id'], 'integer'],
-            [['title', 'date', 'city', 'company', 'description', 'image'], 'safe'],
+            [['title', 'city', 'company', 'description', 'image'], 'safe'],
+            [['date', 'min_date', 'max_date',], 'date', 'format' => 'php:Y-m-d'],
         ];
     }
 
@@ -62,7 +65,6 @@ class VacanciesSearch extends Vacancies
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'date' => $this->date,
             'response_id' => $this->response_id,
             'category_id' => $this->category_id,
             'user_id' => $this->user_id,
@@ -71,6 +73,11 @@ class VacanciesSearch extends Vacancies
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'company', $this->company])
+            ->andFilterWhere([
+                'and',
+                ['>=', 'date', $this->min_date],
+                ['<=', 'date', $this->max_date],
+            ])
             ->andFilterWhere([
                 'and',
                 ['>=', 'salary', $this->min_salary],
