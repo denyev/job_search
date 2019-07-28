@@ -55,12 +55,32 @@ use yii\jui\DatePicker;
         ])
     ?>
 
-    <?= $form->field($model, 'salary', [
-            'labelOptions' => [
-                    'class' => 'bmd-label-floating'
-            ]
-        ])
-    ?>
+    <fieldset class="form-group">
+        <legend class="col-form-label">Зарплата</legend>
+        <div class="row">
+            <?= $form->field($model, 'min_salary', [
+                    'options' => [
+                            'class' => 'col-6'
+                    ],
+                    'labelOptions' => [
+                            'class' => 'bmd-label-floating'
+                    ]
+                ])
+                ->label('От')
+            ?>
+
+            <?= $form->field($model, 'max_salary', [
+                    'options' => [
+                            'class' => 'col-6'
+                    ],
+                    'labelOptions' => [
+                        'class' => 'bmd-label-floating'
+                    ]
+                ])
+                ->label('До')
+            ?>
+        </div>
+    </fieldset>
 
     <?php // echo $form->field($model, 'description') ?>
 

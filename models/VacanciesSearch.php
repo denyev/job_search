@@ -11,13 +11,16 @@ use app\models\Vacancies;
  */
 class VacanciesSearch extends Vacancies
 {
+    public $min_salary;
+    public $max_salary;
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'salary', 'response_id', 'category_id', 'user_id'], 'integer'],
+            [['id', 'salary', 'min_salary', 'max_salary', 'response_id', 'category_id', 'user_id'], 'integer'],
             [['title', 'date', 'city', 'company', 'description', 'image'], 'safe'],
         ];
     }
@@ -60,7 +63,6 @@ class VacanciesSearch extends Vacancies
         $query->andFilterWhere([
             'id' => $this->id,
             'date' => $this->date,
-            'salary' => $this->salary,
             'response_id' => $this->response_id,
             'category_id' => $this->category_id,
             'user_id' => $this->user_id,
@@ -69,6 +71,11 @@ class VacanciesSearch extends Vacancies
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'city', $this->city])
             ->andFilterWhere(['like', 'company', $this->company])
+            ->andFilterWhere([
+                'and',
+                ['>=', 'salary', $this->min_salary],
+                ['<=', 'salary', $this->max_salary],
+            ])
             ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
