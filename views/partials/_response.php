@@ -4,13 +4,15 @@ use yii\helpers\Html;
 /* @var $vacancy app\controllers\SiteController */
 /* @var $responses app\controllers\SiteController */
 /* @var $responseForm app\controllers\SiteController */
+
+$formatter = \Yii::$app->formatter;
 ?>
 <?php if(!empty($responses)):?>
 <section>
     <h2>Отклики</h2>
     <div class="row mt-3 mb-3">
         <?php foreach($responses as $response):?>
-            <div class="col-sm-6 col-md-3">
+            <div class="col-lg-6 col-xl-4">
             <div class="card mb-3">
                 <dl class="card-body row">
                     <dt class="card-title col-6">Имя:</dt>
@@ -19,11 +21,33 @@ use yii\helpers\Html;
                     </dd>
                     <dt class="card-title col-6">Телефон:</dt>
                     <dd class="card-text col-6">
-                        <?= Html::encode($response->phone); ?>
+                        <a href="tel:+7<?= Html::encode($response->phone); ?>"
+                           aria-label="Телефон соискателя: <?= Html::encode($response->name); ?>">
+                            <?php
+                                /* https://regex101.com/r/FCeSwg/1/ */
+                                $phoneRegexp = '/^(\d{3})(\d{3})(\d{2})(\d{2})$/';
+                                $phoneMatch = preg_match($phoneRegexp, $response->phone, $matches);
+                                if ($phoneMatch) {
+                                    if ($matches[1] && $matches[2] && $matches[3] && $matches[4]) {
+                                        $phone = '+7&nbsp;(' . $matches[1] . ')&nbsp;'
+                                            . $matches[2] . '-' . $matches[3] . '-'
+                                            . $matches[4];
+                                        echo $phone;
+                                    }
+                                }
+                            ?>
+                        </a>
                     </dd>
                     <dt class="card-title col-6">Зарплата:</dt>
                     <dd class="card-text col-6">
-                        <?= Html::encode($response->salary); ?>
+                        <?= $formatter->asCurrency(
+                                $response->salary,
+                                $currency = null,
+                                $options = [
+                                    NumberFormatter::MIN_FRACTION_DIGITS => 0,
+                                ]
+                            )
+                        ?>
                     </dd>
                 </dl>
             </div>
@@ -72,11 +96,11 @@ use yii\helpers\Html;
                 ->widget(\yii\widgets\MaskedInput::className(), [
                     'options' => [
                         'class' => 'form-control',
-                        'id' => 'responsePhone',
                         'placeholder' => '+7 (___) ___-__-__'
                     ],
                     'clientOptions' => [
-                        'clearIncomplete' => true
+                        'clearIncomplete' => true,
+                        'removeMaskOnSubmit' => true,
                     ],
                     'mask' => '+7 (999) 999-99-99',
                 ])
