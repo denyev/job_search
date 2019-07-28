@@ -23,8 +23,7 @@ class ResponseForm extends Model
         return [
             [['name', 'phone', 'salary'], 'required'],
             [['name'], 'string', 'max' => 255],
-            [['phone'], 'string'],
-            [['salary'], 'integer'],
+            [['phone', 'salary'], 'integer'],
         ];
     }
 

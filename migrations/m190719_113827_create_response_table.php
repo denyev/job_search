@@ -15,7 +15,7 @@ class m190719_113827_create_response_table extends Migration
         $this->createTable('{{%response}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(),
-            'phone' => $this->string(),
+            'phone' => $this->integer(),
             'salary' => $this->integer(),
             'vacancy_id' => $this->integer(),
         ]);
