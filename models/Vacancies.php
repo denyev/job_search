@@ -42,7 +42,7 @@ class Vacancies extends \yii\db\ActiveRecord
             [['title', 'city', 'company'], 'string', 'max' => 255],
             [['date'], 'date', 'format' => 'php:Y-m-d'],
             [['date'], 'default', 'value' => date('Y-m-d')],
-            [['salary', 'response_id', 'category_id', 'user_id'], 'integer'],
+            [['salary'], 'integer'],
             [['description'], 'string'],
         ];
     }
@@ -61,9 +61,6 @@ class Vacancies extends \yii\db\ActiveRecord
             'company' => Yii::t('app', 'Компания'),
             'salary' => Yii::t('app', 'Зарплата'),
             'description' => Yii::t('app', 'Описание'),
-            'response_id' => Yii::t('app', 'Response ID'),
-            'category_id' => Yii::t('app', 'Category ID'),
-            'user_id' => Yii::t('app', 'User ID'),
         ];
     }
 

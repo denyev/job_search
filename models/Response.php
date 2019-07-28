@@ -33,15 +33,7 @@ class Response extends \yii\db\ActiveRecord
         return [
             [['name', 'phone', 'salary'], 'required'],
             [['name'], 'string', 'max' => 255],
-            [['phone'], 'string'],
-            [['salary', 'vacancy_id'], 'integer'],
-            [
-                ['user_id'],
-                'exist',
-                'skipOnError' => true,
-                'targetClass' => Users::className(),
-                'targetAttribute' => ['user_id' => 'id']
-            ],
+            [['phone', 'salary', 'vacancy_id'], 'integer'],
             [
                 ['vacancy_id'],
                 'exist',

@@ -4,7 +4,6 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Vacancies;
 
 /**
  * VacanciesSearch represents the model behind the search form of `app\models\Vacancies`.
@@ -22,7 +21,7 @@ class VacanciesSearch extends Vacancies
     public function rules()
     {
         return [
-            [['id', 'salary', 'min_salary', 'max_salary', 'response_id', 'category_id', 'user_id'], 'integer'],
+            [['id', 'salary', 'min_salary', 'max_salary'], 'integer'],
             [['title', 'city', 'company', 'description', 'image'], 'safe'],
             [['date', 'min_date', 'max_date',], 'date', 'format' => 'php:Y-m-d'],
         ];
@@ -65,9 +64,6 @@ class VacanciesSearch extends Vacancies
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'response_id' => $this->response_id,
-            'category_id' => $this->category_id,
-            'user_id' => $this->user_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
