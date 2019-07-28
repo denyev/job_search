@@ -41,6 +41,7 @@ class m190719_113827_create_response_table extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk-vacancy_id', 'response');
         $this->dropTable('{{%response}}');
     }
 }

@@ -20,7 +20,6 @@ class m190719_112248_create_vacancies_table extends Migration
             'company' => $this->string(),
             'salary' => $this->integer(),
             'description' => $this->text(),
-            'response_id' => $this->integer(),
             'category_id' => $this->integer(),
             'user_id' => $this->integer(),
         ]);
