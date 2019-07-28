@@ -57,12 +57,4 @@ class Response extends \yii\db\ActiveRecord
             'vacancy_id' => Yii::t('app', 'Vacancy ID')
         ];
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getVacancy()
-    {
-        return $this->hasOne(Vacancies::className(), ['id' => 'vacancy_id']);
-    }
 }
