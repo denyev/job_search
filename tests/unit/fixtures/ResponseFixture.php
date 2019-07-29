@@ -1,10 +1,10 @@
 <?php
 
-namespace app\fixtures;
+namespace tests\unit\fixtures;
 use yii\test\ActiveFixture;
 
 class ResponseFixture extends ActiveFixture
 {
     public $modelClass = 'app\models\Response';
-    public $dataFile = '@app/fixtures/data/response.php';
+    public $dataFile = '@tests/unit/fixtures/data/response.php';
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\fixtures;
+namespace tests\unit\fixtures;
 use yii\test\ActiveFixture;
 
 class VacanciesFixture extends ActiveFixture
 {
     public $modelClass = 'app\models\Vacancies';
-    public $dataFile = '@app/fixtures/data/vacancies.php';
+    public $dataFile = '@tests/unit/fixtures/data/vacancies.php';
 }

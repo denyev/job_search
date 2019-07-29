@@ -58,7 +58,7 @@ $ cd config && cp -v db.php db.example.php
 
 ## Применение миграций
 
-В корне проекта необходимо выполнить команду
+* В корне проекта необходимо выполнить команду
 
 ```
 $ php yii migrate
@@ -66,8 +66,10 @@ $ php yii migrate
 
 ## Загрузка фикстур
 
+* В корне проекта необходимо выполнить команду
+
 ```
-$ php yii fixture/load '*' --namespace='app\fixtures'
+$ php yii fixture/load '*'
 ```
 
 ## Установка redis
