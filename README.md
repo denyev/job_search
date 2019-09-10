@@ -51,7 +51,7 @@ root /path/to/web;
 Для подключения к БД необходимо переименовать файл `db.example.php`, который находится в папке `config` проекта, в файл `db.php`
 
 ```
-$ cd config && cp -v db.php db.example.php
+$ cd config && cp -v db.example.php db.php
 ```
 
 И указать в файле `db.php` реквизиты подключения к БД.
